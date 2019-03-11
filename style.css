@@ -1,0 +1,119 @@
+div.center {
+	text-align: center;
+}
+
+div.code {
+	color: #ffffff;
+	background-color: #000000;
+	width:60em;
+}
+
+ul.number {
+	list-style-type: decimal;
+}
+
+h1.side {
+	font-size: 1.2em;
+	text-align: center;
+}
+
+h2.side {
+	font-size: 1em;
+	text-align: center;
+}
+
+h1.body {
+}
+
+body.side {
+	background-image: url("./images/side_back.png");
+	text-align: center;
+}
+
+body.body {
+	background-image: url("./images/body_back.png");
+}
+
+
+iframe.side {
+	border: 2px solid #7ec5e2;
+	width: 20vw;
+	height: 100vw;
+	display: inline;
+	margin-top: 0.5em
+}
+
+iframe.body {
+	border: 2px solid #7ec5e2;
+	width: 75vw;
+	height: 100vw;
+	display: inline;
+	margin-top: 0.5em
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: solid 1px;
+	border-color: #0a31ff;
+	background-color: #27ff91;
+	padding: 0.5em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+li {
+	margin-bottom: 1em;
+}
+
+body {
+	background-image: url("./images/back.png");
+	font-family: sans-serif;
+	font-size: 23px;
+}
+
+@media screen and (max-width: 950px) {
+	iframe.side {
+		border: 2px solid #7ec5e2;
+		width: 95vw;
+		height: 30vw;
+		display: block;
+		margin-top: 0.5em
+	}
+	
+	iframe.body {
+		border: 2px solid #7ec5e2;
+		width: 95vw;
+		height: 75vw;
+		display: block;
+		margin-top: 0.5em
+	}
+}
+
+.red {
+	color:#ff0000;
+}
+
+.blue {
+	color:#0000ff;
+}
+
+.green {
+	color:#45e307;
+}
+
+.yellow {
+	color:#ffff00;
+}
+
+.right-blue {
+	color:#00ffff;
+}
+
+.purple {
+	color:#ff00ff;
+}

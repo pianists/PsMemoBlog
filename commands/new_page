@@ -1,0 +1,10 @@
+#!/bin/sh
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+cp $SCRIPT_DIR/template.html $1/$2.html
+cp $SCRIPT_DIR/body_template.html $1/$2_body.html
+sed -i "" "s/FILE_NAME/$2_body/g" $1/$2.html
+sed -i "" "s/TITLE/$3/g" $1/$2.html
+sed -i "" "s/TITLE/$3/g" $1/$2_body.html
+sed -i "" "s/DATE/`date "+%Y %b\/%e"`/g" $1/$2_body.html
+open $1/$2_body.html -a Sublime\ Text\ 2
+$1/update_index

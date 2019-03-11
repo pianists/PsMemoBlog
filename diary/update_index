@@ -1,0 +1,15 @@
+#!/bin/sh
+LF=$(printf '\\\012_')
+LF=${LF%_}
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+files=""
+for file in `ls $SCRIPT_DIR`; do
+	if [ $file != "index.html" -a ${file:${#file}-10:10} != "_body.html" -a ${file:${#file}-10:10} != "body_.html" -a ${file##*.} = "html" ] ; then
+		array=(`echo \`cat $SCRIPT_DIR/$file\``)
+		title=${array[15]}
+		title=${title:0:${#title}-8}
+		files="$files<a href=\"$file\" target=\"_top\">$title<\/a><br> $LF"
+	fi
+done
+cp $SCRIPT_DIR/index_body_.html $SCRIPT_DIR/index_body.html
+sed -i "" "s/LIST/$files/" $SCRIPT_DIR/index_body.html
