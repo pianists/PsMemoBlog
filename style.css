@@ -38,17 +38,18 @@ body.body {
 iframe.side {
 	border: 2px solid #7ec5e2;
 	width: 20vw;
-	height: 100vw;
+	height: 50vw;
 	display: inline;
-	margin-top: 0.5em
+	margin-top: 0.5em;
+	vertical-align: top;
 }
 
 iframe.body {
 	border: 2px solid #7ec5e2;
 	width: 75vw;
-	height: 100vw;
 	display: inline;
-	margin-top: 0.5em
+	margin-top: 0.5em;
+	vertical-align: top;
 }
 
 table {
@@ -68,6 +69,12 @@ h2 {
 
 li {
 	margin-bottom: 1em;
+}
+
+p.tag {
+	font-color: #4a4c4f;
+	background-color: #aeb3ba;
+	display: inline;
 }
 
 body {

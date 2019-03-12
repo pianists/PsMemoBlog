@@ -31,5 +31,16 @@
 		})();
 		</script>
 		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+		$(".body").on("load", function(){
+		    try {
+		        $(this).height(0);
+		        $(this).height(this.contentWindow.document.documentElement.scrollHeight);
+		    } catch (e) {
+		    }
+		});
+		$(".body").trigger("load");
+		</script>
 	</body>
 </html>
