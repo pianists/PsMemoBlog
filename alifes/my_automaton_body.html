@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Pのめもぶろぐ - セルオートマトンを作ってみた</title>
+	</head>
+	<body class=body>
+		<h1 class=body>セルオートマトンを作ってみた - 2019  4/ 7</h1>
+		<p class=tag>人工生命</p>
+		<p class=tag>セル・オートマトン</p>
+		<p class=tag>python</p>
+		<p class=tag>python2.7</p>
+		<p class=tag>pygame</p>
+		<p>
+			記事のカテゴリが毎回違いすぎる。
+			RPGを放置して何をしてるんだという感じだがセルオートマトン(もどき)を作った。
+		</p>
+		<h2>セルオートマトンってなんだよ</h2>
+		<p>
+			<a href="https://ja.wikipedia.org/wiki/セル・オートマトン" target="_top">Wikipedia</a>へどうぞ。
+			ライフゲームの方が有名かもしれないが、
+			ライフゲームはセルオートマトンの一例だ。
+			ちゃんとしたセルオートマトンだと
+			ムーア近傍とかノイマン近傍とか数学的にルールが決められてるけど、
+			それを勉強するのも大変だったのでオリジナルでルールを作った。
+			環境はmac、python2.7でpygameを使った。
+		</p>
+		<h2>今回のルール</h2>
+		<ul>
+			<li>色は黒・青・赤・緑・黄・マゼンタ・白・シアンの8つ</li>
+			<li>セルは周りの8セルの色の個数によって状態が変わる</li>
+			<li>つまり色の数が大事で並びは関係ない</li>
+			<li>黒は青が1個以上、緑が2以上だと青になる</li>
+			<li>赤は赤が1個以下だと黒になる</li>
+			<li></li><li></li><li>以下略</li>
+		</ul>
+		最初は全部書こうかと思ったけど
+		pythonで	調整しながら作ったから日本語に書き下すのが大変。
+		こんな感じなのだけれど、
+		一つだけ特別ルールがある。
+		それはシアンのセルだけは独自のルールを持つということ。
+		例えば、初期配置のシアンのセルは
+		「赤が4以下だったら自分の周りに赤・青・赤・赤・赤・赤・青・赤のように置く」
+		など自分の周りにセルを置くことができる。
+		そしてある条件を満たすとシアンセルは増殖し、
+		増殖するたびに独自のルールは変わる可能性がある。
+		つまり、遺伝子と突然変異の概念を組み込んだ。
+		<h2>結果</h2>
+		こうなった<br>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/vAlvbQW6EBs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+		シアンのパターンが少しランダムになっていることがわかる。
+		あまり生物っぽくないな...。
+		遺伝子の概念を組み込んだところで動きは大して変わらないかもしれない。
+		突然変異のパターンを変えたりして少し遊んでみたい。
+		何気にYoutubeに動画をあげるのが一番大変だった。
+	</body>
+</html>
