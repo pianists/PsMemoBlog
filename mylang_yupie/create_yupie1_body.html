@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Pのめもぶろぐ - 自作言語Yupie1</title>
+	</head>
+	<body class=body>
+		<h1 class=body>自作言語Yupie1 - 2019  5/ 2</h1>
+		<p class="tag">プログラミング言語自作</p>
+		<p class="tag">Yupie</p>
+		<p class="tag">Haskell</p>
+		<p class="tag">字句解析</p>
+		<p class="tag">構文解析</p>
+		<p class="tag">Happy</p>
+		<p>
+			自作のプログラミング言語を作ろうと思う。
+			令和最初の記事も、いつも通り唐突。
+		</p>
+
+		<h2>プログラミング言語を作るとは</h2>
+		<p>
+			「プログラミング言語を作る」
+			という言葉自体にあまり馴染みがない人も多いと思う。
+			馴染みがある人は飛ばしてどうぞ。
+			そんな人はこの記事にたどり着いていないかもしれないが。
+			ざっくり説明すると、
+			プログラミング言語だって、
+			プログラムなんだから自分で作れんじゃね?という話。
+			具体的な作り方については結構書いている方がいるので参考にして欲しい。
+		</p>
+
+		<h2>コンセプト</h2>
+		<p>
+			一言に言語作りといってもRubyみたいにガチな言語を作ってしまう人もいれば、
+			Brainf*ck系のネタ言語を作る人もいる。
+			今回は、割とガチな感じで作りたいと思う。
+			Rubyほどメジャーになるのが夢。(ただし夢。)
+			言語名は<b>Yupie</b>。
+			ゆーぴーと発音し、Useful、Powerful、Elegantの頭文字UPEが語源。
+			名前通り、役に立ち、強力で、綺麗な(エレガントな)言語にしたい。
+			具体的にいうと、
+			Pythonぐらい便利で、
+			Rubyぐらい強力で、
+			Ioぐらいエレガントにしたい。
+			Io言語知らない人は調べてください。
+		</p>
+
+		<h2>実装</h2>
+		<p>
+			Haskellで実装する。
+			何をトチ狂ったと思う人もいると思うが、
+			色々考えた結果これが最適だった。
+			まずはじめはC(+lex・yacc)で実装しようとしたが、
+			Cの知識が無さすぎかつメモリ管理力がなくて挫折。
+			次にC#で実装しようとしたが、
+			いいツールが見つからず、
+			何か見つけたと思ったらデータが消えるという散々な目に遭った。
+			しかもC#はLinux/Mac用のコンパイルができない。
+			ということで、
+			ガチガチにコンパイル言語な感じじゃないけどコンパイルできる言語ないかな、
+			と思ったら在った。
+			それがHaskell。
+			関数型言語には抵抗があったが、
+			言語を作るためならとやる気を出し、
+			頑張って習得することができた。
+			Haskell歴1ヶ月くらいだが、
+			基本的な文法と再帰的な考え方、
+			IOモナドとMaybeモナド、IORefぐらいは使えるようになった。
+			そして、いいツールを見つけた。
+			Happyだ。決して英語の嬉しいではない。
+			かの有名なyaccのHaskell版だ。
+			(lexのHaskell版、Alexもあるが諸事情により字句解析は自作することにした。)
+			ということでHaskellでしっかり言語が作れる。
+		</p>
+
+		<h2>パラダイム</h2>
+		<p>
+			言語といったらパラダイムが重要だろう。
+			職業プログラマーは手続き型かオブジェクト指向ばかりだが、
+			オブジェクト指向と一言にいっても、
+			クラスベースやインスタンスベースなど様々な種類がある。
+			Haskellなどは関数型指向だ。
+			今回は、インスタンスベースのオブジェクト指向にする。
+			ただし、既存のインスタンスベースとは仕様が少し異なるはず。
+			Io言語のエレガントさを受け継ぎながらも、
+			仕様をCyan言語にした感じ。
+			ということでクラスは存在しない。
+			専門用語やよくわからない言語がいっぱい出てきてると思うので、
+			各自調べてください。
+		</p>
+
+		<h2>進捗</h2>
+		<p>
+			で、どこまで進んだのか。
+			電卓に変数とオブジェクトの概念を足したぐらいにはなった。
+			それと、いろんな演算子を後から追加できるようにしたいので、
+			字句解析器に直接演算子を定義するのではなく、
+			外から引数で演算子テーブルを渡すようにした。
+			一応字句解析のソースだけ貼っとく。
+			解説はしないので読み取ってください。
+			<div class="code" id="code1"></div>
+			今の所、
+			スペースを読み飛ばすのと数字・記号類・演算子・予約語・識別子の判定ができる。
+			需要があれば次回以降で他のソースを載せたり解説したりします。
+			コメントやリプください。
+			言語として使えるようになれば、
+			ver1.0としてGitHubにあげます。
+		</p>
+
+	<script type="text/javascript" src="../code_color_system.js"></script>
+	<script>
+	code("module Lexer where\nimport Data.Char\nimport Data.List\nimport Debug.Trace\n\ndata Token = TNumber Int\n            | TBop1 String\n            | TBop2 String\n            | TBop3 String\n            | TLP\n            | TRP\n            | TDot\n            | TPrint\n            | TAssign\n            | TObject\n            | TId String\n            | TEof\n            deriving (Eq,Show)\n\nfindFromLBops :: String -> [String] -> Maybe (String,String)\nfindFromLBops s [] = Nothing\n\nfindFromLBops s (bop:bops) =\n    if (fst l) == bop then\n        Just (bop,snd l)\n    else\n        findFromLBops s bops\n    where l = splitAt (length bop) s\n\ngetBopNumber :: String -> [[String]] -> Int -> Int\ngetBopNumber bop boptable n\n    | elem bop (boptable !! n) = n+1\n    | otherwise = getBopNumber bop boptable (n+1)\n\nfindFromBops :: String -> [[String]] -> Maybe ((String,String),Int)\nfindFromBops s boptable =\n    case result of\n        Just tup -> Just (tup,getBopNumber (fst tup) boptable 0)\n        Nothing -> Nothing\n    where\n        flatSortTable = sortBy (\\x y -> compare (length y) (length x)) $ foldl1 (++) boptable\n        result = findFromLBops s flatSortTable\n\ngetId :: String -> [[String]] -> (String,String)\ngetId [] boptable = (\"\",\"\")\ngetId (x:xs) boptable =\n    case findFromBops (x:xs) boptable of\n        Just (tup,_) -> (\"\",(fst tup)++(snd tup))\n        Nothing ->\n            if elem x [\'(\',\')\',\'=\',\'.\',\' \'] then\n                (\"\",x:xs)\n            else\n                let (y,ys) = getId xs boptable in ([x]++y,ys)\n\ngetToken :: String -> [[String]] -> (Token,String)\ngetToken [] boptable = (TEof,\"\")\ngetToken (x:xs) boptable\n    | isSpace x = getToken xs boptable\n    | isDigit x = let (y,ys) = span isDigit s\n                    in (TNumber (read y :: Int),ys)\n    | x == \'(\' = (TLP,xs)\n    | x == \')\' = (TRP,xs)\n    | x == \'=\' = (TAssign,xs)\n    | x == \'.\' = (TDot,xs)\n    | otherwise =\n        case findFromBops s boptable of\n            Just (tup,1) -> (TBop1 (fst tup),snd tup)\n            Just (tup,2) -> (TBop2 (fst tup),snd tup)\n            Just (tup,3) -> (TBop3 (fst tup),snd tup)\n            Nothing -> let (y,ys) = getId s boptable in\n                        case y of\n                            \"print\" -> (TPrint,ys)\n                            \"object\" -> (TObject,ys)\n                            _ -> (TId y,ys)\n    where s = x:xs\n\nscanTokens :: String -> [[String]] -> [Token] --この関数に解析したい文字列・演算子の表(優先順位ごと)を渡す\nscanTokens \"\" boptable = []\nscanTokens s boptable =\n    case x of\n        TEof -> []\n        _ -> [x] ++ scanTokens xs boptable\n    where (x,xs) = getToken s boptable","code1","haskell");
+	</script>
+	</body>
+</html>
