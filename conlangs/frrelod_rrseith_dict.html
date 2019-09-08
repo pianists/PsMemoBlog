@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>フレロッド・ルセイス祖語辞書</title>
+	</head>
+	<body class=body>
+		<h1 class=body>フレロッド・ルセイス祖語辞書</h1>
+		まだ全然語数が足りないです。
+		語根も調べられます。(これはもっぱら作者用ですが)
+		<form action="javascript:search();">
+			全文検索:
+			<input type="checkbox" id="is_all"/><br>
+			検索:
+			<input type="textbox" id="word_input"/>
+			<input type="submit" value="検索">
+		</form>
+		結果:
+		<div id="output"></div>
+		<script>
+		var dict = [
+			["al" , [
+				"私",
+				"一人称代名詞。",
+				"代名詞",
+				"主観",
+			]],
+			["alu" , [
+				"私",
+				"一人称代名詞の異形。",
+				"代名詞",
+				"主観",
+			]],
+			["em" , [
+				"〜だ[接辞]",
+				"接辞動詞。英語のbe動詞にあたる。",
+				"動詞",
+				"ランダム",
+			]],
+			["fat'" , [
+				"風 吹く 涼しい[語根]",
+				"風に関連するものを表す語根。",
+				"語根",
+				"音象徴 soft/hard",
+			]],
+			["fqt'" , [
+				"風 吹く 涼しい[語根]",
+				"fat'に同じ。",
+				"語根",
+				"音象徴 soft/hard",
+			]],
+			["id`" , [
+				"〜は[題目格マーカー]",
+				"題目節を作る機能語。日本語の「〜は」にあたる。",
+				"後置詞",
+				"ランダム",
+			]],
+			["r`el" , [
+				"土 大地 土地[語根]",
+				"土に関連する語根。",
+				"語根",
+				"音象徴 light/neutral",
+			]],
+			["r`ol" , [
+				"土 大地 土地[語根]",
+				"r`elに同じ。",
+				"語根",
+				"音象徴 light/neutral",
+			]],
+			["ser'" , [
+				"水 流体 液体 流れ[語根]",
+				"水や液体等を表す語根。",
+				"語根",
+				"音象徴 hard/heavy"
+			]],
+			["sor'" , [
+				"水 流体 液体 流れ[語根]",
+				"ser'に同じ。",
+				"語根",
+				"音象徴 hard/heavy"
+			]],
+			["te" , [
+				"〜か?[疑問文化]",
+				"文末につけて疑問文を作る。単純疑問、疑問詞疑問の両方につけることができるが、イントネーションだけで区別することも多い。",
+				"後置詞",
+				"ランダム",
+			]],
+			["to" , [
+				"〜の[名詞の形容詞化]",
+				"A to Bで、AのBを表す。つまり、直前の名詞を形容詞化する。",
+				"後置詞",
+				"主観",
+			]],
+			["xev" , [
+				"火 燃える 熱い[語根]",
+				"火に関連するものを表す語根。",
+				"語根",
+				"音象徴 light/hard",
+			]],
+			["xov" , [
+				"火 燃える 熱い[語根]",
+				"xevに同じ。",
+				"語根",
+				"音象徴 light/hard",
+			]],
+			["x'en" , [
+				"太陽 日 暑い[語根]",
+				"太陽から派生した意味を持つ語根。",
+				"語根",
+				"音象徴 heavy/soft",
+			]],
+			["x'on" , [
+				"太陽 日 暑い[語根]",
+				"x'enに同じ。",
+				"語根",
+				"音象徴 heavy/soft",
+			]],
+			["zab" , [
+				"草木 成長 森 伸びる[語根]",
+				"草木から派生した意味を持つ語根。",
+				"語根",
+				"音象徴 hard/heavy",
+			]],
+			["zqb" , [
+				"草木 成長 森 伸びる[語根]",
+				"zabに同じ",
+				"語根",
+				"音象徴 hard/heavy",
+			]],
+		];
+		function search(){
+			input = document.getElementById("word_input");
+			output = document.getElementById("output");
+			is_all = document.getElementById("is_all");
+			results = [];
+			dict.forEach(function(elm,i) {
+				var key = elm[0];
+				var val = elm[1];
+				if(!is_all.checked){
+					if(input.value == key.slice(0,input.value.length)){
+						results.push([key,val]);
+					};
+				}else{
+					if(key.indexOf(input.value) > -1 ||
+						(val.join(",")).indexOf(input.value) > -1){
+						results.push([key,val]);
+					};
+				};
+			}, dict);
+			if(results.length == 0){
+				output.innerText = "見つかりませんでした。";
+			}else{
+				output.innerHTML = "";
+				results.forEach(function(result,i){
+					key = result[0];
+					val = result[1];
+					output.innerHTML += "<h2>" + key + "</h2>" +
+					"意味 : " + val[0] + "<br>" + "概要 :" + "<br>" + val[1] +
+					"<br>" + "品詞 : " + val[2] + "<br>" + "造語法 : " + val[3];
+				});
+			};
+		};
+		</script>
+	</body>
+</html>
