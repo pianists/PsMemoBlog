@@ -4,7 +4,7 @@ LF=${LF%_}
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 files=""
 for file in `ls -F $SCRIPT_DIR/../`; do
-	if [ ${file:${#file}-1:1} = "/" -a $file != "commands/" -a $file != "images/" ] ; then
+	if [ ${file:${#file}-1:1} = "/" -a $file != "commands/" -a $file != "conlangs/" -a $file != "images/" ] ; then
 		array=(`echo \`cat $SCRIPT_DIR/../$file/index.html\``)
 		title=${array[15]}
 		title=${title:0:${#title}-8}
