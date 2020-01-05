@@ -1,0 +1,755 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>アルファ祖語(仮)</title>
+		<script>
+		var dict = [
+			["AL" , [
+				"私",
+				"一人称単数。",
+				"代名詞",
+				"主観",
+				["AL","AL","Ale","Ali","Alis","ALT","Alid\"","Alic"],
+			]],
+			["al(2)" , [
+				"対格動詞派生語を作る[接尾辞]",
+				"対格動詞派生語を作る。前音節の母音がa・e・iのとき用いる。o・u・qのときは%ql%",
+				"接尾辞",
+				"音象徴 neutral",
+			]],
+			["Alu" , [
+				"私",
+				"一人称単数%al%の異形。ルセイスよりの方言の一つ。",
+				"代名詞",
+				"主観",
+				["Alu","AL","ALD","ALM","ALS","ALD","Aled\"","Alic"],
+			]],
+			["an" , [
+				"中 中へ 中に[接頭辞]",
+				"中を表す接頭辞。英:in。",
+				"接頭辞",
+				"音象徴 soft",
+			]],
+			["anSER" , [
+				"飲む",
+				"原義は中へ流す。",
+				"動詞",
+				"合成 %an%/%ser%",
+				["規則変化","KG2型"],
+			]],
+			["anXUN" , [
+				"日中 一日 日",
+				"英:dayにあたる日中の言い方。",
+				"名詞",
+				"合成 %an%/%xun%",
+				["anXUN","anXU'N","anXUN id","anXIN","anXINS","anXUNT","anXIND\"","anXUNic"],
+			]],
+			["at" , [
+				"〜がある",
+				"存在を表す動詞。コピュラ動詞emとは別。",
+				"動詞",
+				"音象徴 neutral",
+				["atl","aj","aTAS","aTAM","atk","atf","KS1型"],
+			]],
+			["aTEG\"" , [
+				"もの 存在",
+				"在る者という意味でもの・存在となる。",
+				"名詞",
+				"主格動詞派生語 at",
+				["aTEG\"","iTEG\"","aTEG\" id","uTEG\"","uTEG\"s","aTEG\"t","uTEG\"d\"","uTEG\"ic"],
+			]],
+			["ax" , [
+				"こと 事",
+				"形式名詞にもなる。",
+				"名詞",
+				"音象徴 neutral",
+				["ax","ax","axd","aXI","aXIS","axt","aXID\"","aXIc"],
+			]],
+			["Ayod\"" , [
+				"好き 好む",
+				"原義は「自分に合う」。",
+				"動詞",
+				"合成 %al%/%yod\"%",
+				["規則変化","KS2型"],
+			]],
+			["bas" , [
+				"暗い 乱雑[語根]",
+				"暗いイメージの語根。%xun%の対義語。",
+				"語根",
+				"音象徴 heavy/hard",
+			]],
+			["basl" , [
+				"暗い",
+				"暗い。詳しくないという意味は無い。粗末であったり、雑だという意味にもなる。",
+				"形容詞",
+				"合成 %bas%/neutral",
+				["basl","besl"],
+			]],
+			["BI" , [
+				"これ",
+				"指示代名詞近称。",
+				"代名詞",
+				"主観",
+				["BI","BI","BID","BU","BUS","BIT","BUD\"","BUC"],
+			]],
+			["bzab\"" , [
+				"黒い",
+				"黒いという色の形容詞。",
+				"形容詞",
+				"混成 bas/heavy/heavy",
+				["bzab\"","bzeb\""],
+			]],
+			["ceb" , [
+				"へこんだ 戻った[語根]",
+				"へこむに関連した接頭辞。",
+				"語根",
+				"音象徴 hard/heavy",
+			]],
+			["cob" , [
+				"へこんだ 戻った[語根]",
+				"cebに同じ。",
+				"語根",
+				"音象徴 hard/heavy",
+			]],
+			["cug\"" ,[
+				"引っ張る 率いる[語根]",
+				"何かを引っ張るイメージの語根。",
+				"語根",
+				"音象徴 light/hard"
+			]],
+			["cun" , [
+				"〜から 奪格のイメージ[語根]",
+				"英:fromにあたる奪格イメージの語根。",
+				"語根",
+				"混成 %cug\\\"%/%an%"
+			]],
+			["did\"" , [
+				"木材 木製 木 人工物[語根]",
+				"木材に関連した意味を持つ語根。",
+				"語根",
+				"音象徴 hard/light",
+			]],
+			["dud\"" , [
+				"木材 木製 木 人工物[語根]",
+				"d`id`\"に同じ。",
+				"語根",
+				"音象徴 hard/light",
+			]],
+			["ebh" , [
+				"事象動詞派生語を作る[接尾辞]",
+				"事象動詞派生語を作る接尾辞。",
+				"接尾辞",
+				"音象徴 neutral/neutral"
+			]],
+			["eg\"" , [
+				"主格動詞派生語を作る[接尾辞]",
+				"主格同士派生語を作る接尾辞で、前音節の母音がa・e・iのときに用いられる。o・u・qの場合は%og\\\"%を使用。",
+				"接尾辞",
+				"音象徴 hard",
+			]],
+			["em" , [
+				"〜だ[コピュラ]",
+				"コピュラ動詞。英語のbe動詞にあたる。",
+				"動詞",
+				"音象徴 neutral",
+				["el","emj","es","eMAM","ek","emf","TG1型"],
+			]],
+			["eXI" , [
+				"何",
+				"疑問詞。teとともに使うこともできる。",
+				"疑問詞",
+				"音象徴 neutral",
+				["exi","ex","exd`","ext","exts","exit","exid\"","exic"],
+			]],
+			["faf" , [
+				"風 吹く 涼しい[語根]",
+				"風に関連するものを表す語根。",
+				"語根",
+				"音象徴 soft/hard",
+			]],
+			["fer" , [
+				"広い 幅 広大な[接頭辞]",
+				"幅広いイメージの接頭辞。",
+				"接頭辞",
+				"音象徴 soft/soft",
+			]],
+			["ferNIM" , [
+				"山",
+				"広大に盛り上がったものが原義。",
+				"名詞",
+				"合成 %fer%/%nim%",
+				["ferNIM","ferNUM","ferNIM id","ferNU'M","ferNU'MS","ferNIMT","ferNU'MD\"","ferNU'mic"],
+			]],
+			["fik" , [
+				"あなたたち",
+				"二人称複数。",
+				"代名詞",
+				"主観",
+				["fik","fik","fikd","fuk","fuks","fikt","fukd\"","fukic"],
+			]],
+			["fin" , [
+				"あなたたち(2人)",
+				"二人称双数。",
+				"代名詞",
+				"%fik%から",
+				["fin","fin","find","fun","funs","fint","fund\"","funic"],
+			]],
+			["for" , [
+				"広い 幅 広大な[接頭辞]",
+				"%fer%に同じ。",
+				"接頭辞",
+				"音象徴 soft/soft"
+			]],
+			["fqf" , [
+				"風 吹く 涼しい[語根]",
+				"%faf%に同じ。",
+				"語根",
+				"音象徴 soft/hard",
+			]],
+			["FQFX" , [
+				"吹く 風が吹く",
+				"広く風一般に使われる。主語は吹くもの(例えば風)であり、吹かせた動作主ではない。自動詞。そもそも風を意味しているので、主格を風を意味する名詞にするのは稀。",
+				"動詞",
+				"合成 %fqf%/hard",
+				["規則変化","TS1型"],
+			]],
+			["FQFxog\"" , [
+				"風",
+				"風を表す名詞。%fqfx%の主格動詞派生語。",
+				"名詞",
+				"主格動詞派生語 %fqfx%",
+				["FQFxog\"","FQ'Fxog\"","FQFxog\" id","FAFxog\"","FAFxog\"s","FQFxog\"t","FAFxog\"d\"","FAFxog\"ic"],
+			]],
+			["GI" , [
+				"あれ",
+				"指示代名詞遠称。",
+				"代名詞",
+				"主観",
+				["GI","GI","GID","GU","GUS","GIT","GUD\"","GUC"],
+			]],
+			["GUcun" , [
+				"来る",
+				"英:comeに当たる動詞。",
+				"動詞",
+				"合成 %GI%(処格)/%cun%",
+				["規則変化","TG2型"],
+			]],
+			["haf" , [
+				"あなた",
+				"二人称単数。",
+				"代名詞",
+				"主観",
+				["haf","haf","hafd","hef","hefs","haft","hefd\"","hefic"],
+			]],
+			["hif" , [
+				"あなた",
+				"二人称単数%haf%の異形。ルセイスよりの方言。",
+				"代名詞",
+				"主観",
+				["hif","haf","haft","hav","havz","hevd","havd\"","havic"],
+			]],
+			["ib" , [
+				"分詞を作る[接尾辞]",
+				"動詞につき、分詞を作る。",
+				"接尾辞",
+				"音象徴 neutral",
+			]],
+			["ic" , [
+				"〜ところ[接尾辞]",
+				"語根等につき、場所を表す。",
+				"接尾辞",
+				"処格の接尾辞から",
+			]],
+			["id" , [
+				"〜は[題目格マーカー]",
+				"題目節を作る機能語。日本語の「〜は」にあたる。",
+				"後置詞",
+				"ランダム",
+			]],
+			["BA" , [
+				"〜しない 〜でない",
+				"否定の副詞。",
+				"副詞",
+				"音象徴 heavy"
+			]],
+			["ik" , [
+				"〜のために[接頭辞]",
+				"%ub%に誰かを想うイメージが合わさったイメージ。",
+				"接頭辞",
+				"音象徴 light",
+			]],
+			["ikNOH" , [
+				"願う",
+				"英:wishにあたる。原義は誰かを想って言葉を紡ぐ。与格で誰のことを願っているかを表す。",
+				"動詞",
+				"合成 %ik%/%noh%",
+				["規則変化","KS2型"],
+			]],
+			["lud" , [
+				"彼・彼女",
+				"有生三人称単数。無生の場合は指示代名詞を使用。",
+				"代名詞",
+				"主観",
+				["lud","lud","ludz","lu'd","lu'ds","lu't","lu'd\"","lu'dic"],
+			]],
+			["luk" , [
+				"色 [語根]",
+				"色に関する語根。色の名前は語末がlkのことが多い。",
+				"語根",
+				"音象徴 neutral/neutral",
+			]],
+			["lukb" , [
+				"色がある 色がついている",
+				"名詞ではなく動詞。S likb Oで「SにはOという色がついている」。",
+				"動詞",
+				"音象徴 luk/neutral",
+				["規則変化","TS1型"],
+			]],
+			["LUKbql" , [
+				"色",
+				"lukbから派生した名詞。",
+				"名詞",
+				"動名詞 lukb",
+				["LUKbql","LU'Kbql","LUKbql id","LIKbql","LIKbqls","LUKbqlt","LIKbqld\"","LIKbqlic"],
+			]],
+			["MAS" , [
+				"私たち(2人)",
+				"一人称双数。",
+				"代名詞",
+				"%mar`%から",
+				["MAS","MAS","MASD","MES","MES","MEST","MESD\"","MEsic"],
+			]],
+			["MAR`" , [
+				"私たち",
+				"一人称複数。",
+				"代名詞",
+				"主観",
+				["MAR`","MAR`","MAR`D","MER`","MER`S","MAR`T","MER`D\"","MEr`ic"],
+			]],
+			["MAyod\"", [
+				"我ら",
+				"この民族の自称。",
+				"名詞",
+				"合成 %mar`%/%yod\\\"%",
+				["MAyod\"","MEyod\"","MAyod\" id","MIyod\"","MIyod\"s","MAyod\"t","MIyod\"","Miyodic"],
+			]],
+			["mep" , [
+				"音 声[語根]",
+				"音に関連する語根。",
+				"語根",
+				"音象徴 soft/hard",
+			]],
+			["meps" , [
+				"(音が)鳴る",
+				"声や音に幅広く使うことができる。",
+				"動詞",
+				"合成 %mep%/hard",
+				["規則変化","TG1型"],
+			]],
+			["MUX" , [
+				"食べる",
+				"飲み物には使えず、食べ物のみ。",
+				"動詞",
+				"音象徴 soft/neutral",
+				["規則変化","TS1型"],
+			]],
+			["MUxql" , [
+				"食べ物",
+				"食べるものを表す%mux%の対格動詞派生語。",
+				"名詞",
+				"対格動詞派生語 %mux%",
+				["MUxql","MU'xql","MUxql id","MIxql","MIxqls","MUxqlt","MIxqld\"","MIxqlic"],
+			]],
+			["nim" , [
+				"突き出た 盛り上がった[語根]",
+				"突き出た等の意味を持つ語根。",
+				"語根",
+				"音象徴 soft/soft",
+			]],
+			["noh" , [
+				"言葉 言語 会話[語根]",
+				"言葉に関する意味を持つ語根。",
+				"語根",
+				"音象徴 soft/neutral",
+			]],
+			["NOHyod\"" , [
+				"言語",
+				"英:languageに当たる。",
+				"名詞",
+				"合成 noh/yod\"",
+				["NOHyod\"","NO'Hyod\"","NOHyod\" id","NEHyod\"","NEHyod\"s","NOHyod\"t","NEHyod\"","NEHyodic"],
+			]],
+			["NOHL" , [
+				"(誰かと)話す",
+				"英:talkや英:tellにあたる聴者を必要とする言い方。%uzmep%と同じく内容に焦点を当てるかどうかは任意。聴者は具格で示す。",
+				"動詞",
+				"合成 %noh%/neutral",
+				["規則変化","TS1型"],
+			]],
+			["num" , [
+				"突き出た 盛り上がった[語根]",
+				"%nim%に同じ。",
+				"語根",
+				"音象徴 soft/soft",
+			]],
+			["og\"" , [
+				"主格動詞派生語を作る[接尾辞]",
+				"主格同士派生語を作る接尾辞で、前音節の母音がo・u・qのときに用いられる。a・e・iの場合は%eg\\\"%を使用。",
+				"接尾辞",
+				"音象徴 hard",
+			]],
+			["ql" , [
+				"対格動詞派生語を作る[接尾辞]",
+				"対格動詞派生語を作る。前音節の母音がo・u・qのとき用いる。a・e・iのときは%al(2)%",
+				"接尾辞",
+				"音象徴 neutral",
+			]],
+			["ra" , [
+				"直線的な移動[語根]",
+				"直進するイメージに関連した語根。",
+				"語根",
+				"音象徴 neutral"
+			]],
+			["rad" , [
+				"とき 時",
+				"直進して速く過ぎて行くイメージの語源raから。",
+				"名詞",
+				"合成 %ra%/hard",
+				["rad","red","rad id","rid","rids","rat","rid\"","ridic"],
+			]],
+			["raf" , [
+				"遠く 向こう とても[語根]",
+				"遠くへ向かうイメージの語根。",
+				"語根",
+				"混成 %ra%/%fer%"
+			]],
+			["RED" , [
+				"大きい",
+				"大きいという意味の形容詞。",
+				"形容詞",
+				"音象徴 heavy/heavy",
+				["RED","RID"],
+			]],
+			["r`el" , [
+				"土 大地 土地[語根]",
+				"土に関連する語根。",
+				"語根",
+				"音象徴 light/neutral",
+			]],
+			["r`ol" , [
+				"土 大地 土地[語根]",
+				"r`elに同じ。",
+				"語根",
+				"音象徴 light/neutral",
+			]],
+			["ser" , [
+				"水 流体 液体 流れ[語根]",
+				"水や液体等を表す語根。",
+				"語根",
+				"音象徴 hard/heavy"
+			]],
+			["serg\"" , [
+				"流れる",
+				"液体等が流れるという動詞。比喩的にも使える。",
+				"動詞",
+				"合成 %ser%/hard",
+				["規則変化","TS1型"],
+			]],
+			["SERg\"ebh" , [
+				"流れ",
+				"流れることを表す名詞。",
+				"名詞",
+				"事象動詞派生語 %serg\\\"%",
+				["SERg\"ebh","SIRg\"ebh","SERg\"ebh id","SURg\"ebh","SURg\"ebhs","SERg\"ebht","SURg\"ebhd\"","SURg\"ebhic"],
+			]],
+			["SERg\"eg\"" , [
+				"水",
+				"水を表す名詞。%serg\\\"%の主格動詞派生語。",
+				"名詞",
+				"主格動詞派生語 %serg\\\"%",
+				["SERg\"eg\"","SIRg\"eg\"","SERg\"eg\" id","SURg\"eg\"","SURg\"eg\"s","SERg\"eg\"t","SURg\"eg\"d\"","SURg\"eg\"ic"],
+			]],
+			["sor" , [
+				"水 流体 液体 流れ[語根]",
+				"serに同じ。",
+				"語根",
+				"音象徴 hard/heavy"
+			]],
+			["TE" , [
+				"〜か?[疑問文化]",
+				"文末につけて疑問文を作る。単純疑問、疑問詞疑問の両方につけることができるが、イントネーションだけで区別することも多い。",
+				"後置詞",
+				"ランダム",
+			]],
+			["tid" , [
+				"彼ら",
+				"三人称複数。",
+				"代名詞",
+				"主観",
+				["tid","tid","tidz","tud","tuds","tidt","tud\"","tudic"],
+			]],
+			["til" , [
+				"彼ら(2人)",
+				"三人称双数。",
+				"代名詞",
+				"主観",
+				["til","til","tild","tul","tuls","tilt","tuld\"","tulic"],
+			]],
+			["to" , [
+				"〜の[名詞の形容詞化]",
+				"A to Bで、AのBを表す。つまり、直前の名詞を形容詞化する。",
+				"後置詞",
+				"主観",
+			]],
+			["ub" , [
+				"対象があることを示す[接頭辞]",
+				"英:atやadventureのadにあたる接頭辞。",
+				"接頭辞",
+				"音象徴 neutral",
+			]],
+			["Ubra" , [
+				"行く",
+				"移動を表す動詞。",
+				"動詞",
+				"合成 %ub%/%ra%",
+				["Ubl","Ubraj","Ubrs","Ubram","Ubrk","Ubrf","TG1型"],
+			]],
+			["uz" , [
+				"外 外へ 外に 上に[接頭辞]",
+				"外を表す接頭辞。英:ex。",
+				"接頭辞",
+				"音象徴 hard",
+			]],
+			["uzXIS" , [
+				"立つ 立ち上がる",
+				"英:standにあたる動詞。上にピンとするが原義。",
+				"動詞",
+				"合成 %uz%/%xis%",
+				["規則動詞","KS2型"],
+			]],
+			["uzMEP" , [
+				"話す 喋る",
+				"英:speakや英:sayにあたる聴者を必要としない言い方。内容に焦点を当てるかどうかは任意。",
+				"動詞",
+				"合成 %uz%/%mep%",
+				["規則変化","TS2型"],
+			]],
+			["uzMEpal" , [
+				"言葉 ことば",
+				"英:wordにあたり、英:languageの意味は無い。大陸の言語だったため、言葉と言語の区別がはっきりしていた。英:languageに当たるのは%nohyod\\\"%。",
+				"名詞",
+				"対格動詞派生語 %uzmep%",
+				["uzMEpal","uzMIpal","uzMEpal id","uzMUpal","uzMUpals","uzMEpalt","uzMUpald\"","uzMUpalic"],
+			]],
+			["vuc" , [
+				"悪い",
+				"悪いという意味の英:badのような形容詞。",
+				"形容詞",
+				"音象徴 hard/light",
+				["vuc","vu'c"],
+			]],
+			["WI" , [
+				"それ",
+				"指示代名詞中称。",
+				"代名詞",
+				"主観",
+				["WI","WI","WID","WO","WOS","WIT","WOD\"","WOC"],
+			]],
+			["xev" , [
+				"火 燃える 熱い[語根]",
+				"火に関連するものを表す語根。",
+				"語根",
+				"音象徴 light/hard",
+			]],
+			["XEVZ" , [
+				"燃える",
+				"ものが燃えることを表す動詞。自動詞。",
+				"動詞",
+				"合成 %xev%/hard",
+				["規則変化","TG1型"],
+			]],
+			["xis" , [
+				"ぴんとする 張る[語根]",
+				"ピンとしたイメージの語根。",
+				"語根",
+				"音象徴 hard/hard",
+			]],
+			["xov" , [
+				"火 燃える 熱い[語根]",
+				"xevに同じ。",
+				"語根",
+				"音象徴 light/hard",
+			]],
+			["xun" , [
+				"明るい きれいな[語根]",
+				"英:cleanや仏:clairのような意味。%bas%の対義語。",
+				"語根",
+				"音象徴 light/soft",
+			]],
+			["XUNB" , [
+				"明るい",
+				"英:clearと英:cleanが混ざった感じ。整理されているという意味も持つ。",
+				"形容詞",
+				"合成 %xun%/neutral",
+				["XUNB","XU'NB"],
+			]],
+			["XUNTC" , [
+				"白い",
+				"白いという色の形容詞。",
+				"形容詞",
+				"合成 %xun%/light/light"
+				["XUNTC","XU'NTC"],
+			]],
+			["x'en" , [
+				"太陽 日 暑い[語根]",
+				"太陽から派生した意味を持つ語根。",
+				"語根",
+				"音象徴 heavy/soft",
+			]],
+			["x'on" , [
+				"太陽 日 暑い[語根]",
+				"%x'en%に同じ。",
+				"語根",
+				"音象徴 heavy/soft",
+			]],
+			["YEN" , [
+				"良い",
+				"良いという意味の英:goodのような形容詞。",
+				"形容詞",
+				"音象徴 soft/neutral",
+				["YEN","YIN"],
+			]],
+			["yod\"" , [
+				"一緒に ともに みんな[語根]",
+				"集合するイメージを持った語根。",
+				"語根",
+				"音象徴 soft/light"
+			]],
+			["zab" , [
+				"草木 成長 森 伸びる[語根]",
+				"草木から派生した意味を持つ語根。",
+				"語根",
+				"音象徴 hard/heavy",
+			]],
+			["zqb" , [
+				"草木 成長 森 伸びる[語根]",
+				"%zab%に同じ",
+				"語根",
+				"音象徴 hard/heavy",
+			]],
+			["ZABX" , [
+				"(植物が)生える 成長する",
+				"植物のイメージから生えるという意味になり、一般に成長するという意味にも使える。",
+				"動詞",
+				"合成 %zab%/neutral",
+				["規則変化","TS1型"],
+			]],
+			["ZABxeg\"" , [
+				"草 植物",
+				"生えるものという意味から。",
+				"名詞",
+				"主格動詞派生語 %zabx%",
+				["ZABxeg\"","ZEBxeg\"","ZABxeg\" id","ZIBxeg\"","ZIBxeg\"s","ZABxeg\"t","ZIBxeg\"d\"","ZIBxeg\"IC"],
+			]],
+		];
+		function search(){
+			input = document.getElementById("word_input");
+			kind = document.getElementById("kind_input");
+			output = document.getElementById("output");
+			is_all = document.getElementById("is_all");
+			is_check_kind = document.getElementById("is_check_kind");
+			results = [];
+			dict.forEach(function(elm,i) {
+				var key = elm[0];
+				var val = elm[1];
+				if(!is_all.checked){
+					if(input.value.toLowerCase() == key.slice(0,input.value.length).toLowerCase()){
+						if(!is_check_kind.checked){
+							results.push([key,val]);
+						}else if(kind.value == val[2]){
+							results.push([key,val]);
+						}
+					};
+				}else{
+					if(key.toLowerCase().indexOf(input.value.toLowerCase()) > -1 ||
+						(val.join(",")).indexOf(input.value.toLowerCase()) > -1){
+						if(!is_check_kind.checked){
+							results.push([key,val]);
+						}else if(kind.value == val[2]){
+							results.push([key,val]);
+						}
+					};
+				};
+			}, dict);
+			if(results.length == 0){
+				output.innerText = "見つかりませんでした。";
+			}else{
+				output.innerHTML = "";
+				results.forEach(function(result,i){
+					key = result[0];
+					val = result[1];
+					output.innerHTML += "<h2>" + key + "</h2>" +
+					"意味 : " + val[0] + "<br>" + "概要 :" + "<br>" + val[1] +
+					"<br>" + "品詞 : " + val[2] + "<br>" + "造語法 : " + val[3];
+					output.innerHTML = output.innerHTML.replace(/%(.*?)%/g,"<a href='#' onclick='searchBy(\"$1\")'>$1</a>");
+					output.innerHTML = output.innerHTML.replace(/>(.*?)\\"(.*?)<\/a>/g,">$1\"$2</a>");
+					if(val.length == 5 && val[4].length == 8){
+						output.innerHTML += "<br>曲用 : "
+							+ "単 " + val[4][0] + ","
+							+ "主 " + val[4][1] + ","
+							+ "題 " + val[4][2] + ","
+							+ "対 " + val[4][3] + ","
+							+ "与 " + val[4][4] + ","
+							+ "奪 " + val[4][5] + ","
+							+ "具 " + val[4][6] + ","
+							+ "処 " + val[4][7];
+					}
+					if(val.length == 5 && val[4].length == 2 && val[2] == "動詞"){
+						output.innerHTML += "<br>活用 : "
+							+ "人称 " + val[4][0] + ","
+							+ "時相 " + val[4][1];
+					}
+					if(val.length == 5 && val[4].length == 2 && val[2] == "形容詞"){
+						output.innerHTML += "<br>活用 : "
+							+ "叙述 " + val[4][0] + ","
+							+ "限定 " + val[4][1];
+					}
+					if(val.length == 5 && val[4].length == 7){
+						output.innerHTML += "<br>活用 : "
+							+ "一単 " + val[4][0] + ","
+							+ "一複 " + val[4][1] + ","
+							+ "二単 " + val[4][2] + ","
+							+ "二複 " + val[4][3] + ","
+							+ "三単 " + val[4][4] + ","
+							+ "三複 " + val[4][5] + ","
+							+ "相 " + val[4][6];
+					}
+				});
+			};
+		};
+		function searchBy(text){
+			document.getElementById('word_input').value=text;
+			search();
+		};
+		</script>
+	</head>
+	<body class=body>
+		<h1 class=body>アルファ祖語(仮)</h1>
+		まだ全然語数が足りないです。
+		語根も調べられます。(これはもっぱら作者用ですが)
+		<form action="javascript:search();">
+			全文検索:
+			<input type="checkbox" id="is_all"/>
+			　品詞をチェックする:
+			<input type="checkbox" id="is_check_kind"/><br>
+			検索ワード:
+			<input type="textbox" id="word_input"/><br>
+			品詞　　　:
+			<input type="textbox" id="kind_input"/>
+			<input type="submit" value="検索">
+		</form>
+		結果:
+		<div id="output"></div>
+	</body>
+</html>
