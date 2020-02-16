@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>アルファ・ビー祖語(仮)</title>
+		<script>
+		var dict = [
+			["al" , [
+				"私",
+				"一人称単数。",
+				"代名詞",
+				"アルファ祖語(仮)alから",
+				["al","ale","ali","alis","al","alto"],
+			]],
+			["anaun" , [
+				"日中 一日 日",
+				"英:dayにあたる日中の言い方。",
+				"名詞",
+				"アルファ祖語(仮)anxunから",
+				["anain","anauni","anain","anains","anauns","anaunto"],
+			]],
+			["eaf" , [
+				"あなた",
+				"二人称単数。",
+				"代名詞",
+				"アルファ祖語(仮)hafから",
+				["eaf","eaf","e:f","e:fs","eaf","eafto"],
+			]],
+			["fir`" , [
+				"全て 全部",
+				"広く全てが原義。",
+				"名詞",
+				"アルファ祖語(仮)ferkから",
+				["fir`","fer`ki","fur`","fur`ks","fer`","fir`o"],
+			]],
+			["ixnoe:l" , [
+				"願う",
+				"英:wishにあたる。与格で誰のことを願っているかを表す。",
+				"動詞",
+				"アルファ祖語(仮)iknohから",
+			]],
+			["lu:" , [
+				"彼・彼女",
+				"有生三人称単数。無生の場合は指示代名詞を使用。",
+				"代名詞",
+				"アルファ祖語(仮)ludから",
+				["lu:","luz","li:","lis","li:","luto"],
+			]],
+			["t\"o:r`al" , [
+				"ふる 降りる",
+				"降下を表す自動詞。",
+				"動詞",
+				"アルファ祖語(仮)d\"ox'raから",
+			]],
+			["yen" , [
+				"良い",
+				"良いという意味の英:goodのような形容詞。",
+				"形容詞",
+				"アルファ祖語(仮)yenから",
+			]],
+		];
+		function search(){
+			input = document.getElementById("word_input");
+			kind = document.getElementById("kind_input");
+			output = document.getElementById("output");
+			is_all = document.getElementById("is_all");
+			is_check_kind = document.getElementById("is_check_kind");
+			results = [];
+			dict.forEach(function(elm,i) {
+				var key = elm[0];
+				var val = elm[1];
+				if(!is_all.checked){
+					if(input.value.toLowerCase() == key.slice(0,input.value.length).toLowerCase()){
+						if(!is_check_kind.checked){
+							results.push([key,val]);
+						}else if(kind.value == val[2]){
+							results.push([key,val]);
+						}
+					};
+				}else{
+					if(key.toLowerCase().indexOf(input.value.toLowerCase()) > -1 ||
+						(val.join(",")).indexOf(input.value.toLowerCase()) > -1){
+						if(!is_check_kind.checked){
+							results.push([key,val]);
+						}else if(kind.value == val[2]){
+							results.push([key,val]);
+						}
+					};
+				};
+			}, dict);
+			if(results.length == 0){
+				output.innerText = "見つかりませんでした。";
+			}else{
+				output.innerHTML = "";
+				results.forEach(function(result,i){
+					key = result[0];
+					val = result[1];
+					output.innerHTML += "<h2>" + key + "</h2>" +
+					"意味 : " + val[0] + "<br>" + "概要 :" + "<br>" + val[1] +
+					"<br>" + "品詞 : " + val[2] + "<br>" + "造語法 : " + val[3];
+					output.innerHTML = output.innerHTML.replace(/%(.*?)%/g,"<a href='#' onclick='searchBy(\"$1\")'>$1</a>");
+					output.innerHTML = output.innerHTML.replace(/>(.*?)\\"(.*?)<\/a>/g,">$1\"$2</a>");
+					if(val.length == 5 && val[4].length == 6){
+						output.innerHTML += "<br>曲用 : "
+							+ "主 " + val[4][0] + ","
+							+ "題 " + val[4][1] + ","
+							+ "対 " + val[4][2] + ","
+							+ "与 " + val[4][3] + ","
+							+ "奪 " + val[4][4] + ","
+							+ "属 " + val[4][5];
+					}
+				});
+			};
+		};
+		function searchBy(text){
+			document.getElementById('word_input').value=text;
+			search();
+		};
+		</script>
+	</head>
+	<body class=body>
+		<h1 class=body>アルファ祖語・ビー祖語(仮)</h1>
+		<form action="javascript:search();">
+			全文検索:
+			<input type="checkbox" id="is_all"/>
+			　品詞をチェックする:
+			<input type="checkbox" id="is_check_kind"/><br>
+			検索ワード:
+			<input type="textbox" id="word_input"/><br>
+			品詞　　　:
+			<input type="textbox" id="kind_input"/>
+			<input type="submit" value="検索">
+		</form>
+		結果:
+		<div id="output"></div>
+	</body>
+</html>
