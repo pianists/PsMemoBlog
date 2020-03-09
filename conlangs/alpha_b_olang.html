@@ -12,27 +12,33 @@
 		</p>
 		<h2>アルファ祖語(仮)からの音韻変化</h2>
 		<h3>規則</h3>
+		[DF] means "Depend Frequence".
 		<ul>
-			<li>語末の破裂音が脱落</li>
-			<li>脱落した子音を補うように母音が長母音化</li>
-			<li>hがeに、xがaに、x'がoに変化</li>
-			<li>有声有気音が無声有気音に変化</li>
-			<li>長子音のうち破裂音は無生有気音の短子音に、それ以外はそのまま短子音に変化</li>
-			<li>rがr`に変化</li>
-			<li>vがwに変化</li>
-			<li>u'がiに、o'はuに、q'はaに統合</li>
-			<li>qはoに統合(よってqという音素がなくなるのでqは曖昧母音を表すことにする。)</li>
+			<li>V{p,b,b",t,d,d",k,g,g"} -> V: / _$</li>
+			<li>h,x,x' -> e,a,o / _(only stressed syllable)</li>
+			<li>h,x,x' -> ∅ / _(only NOT stressed syllable)</li>
+			<li>b",d",g" -> p",t",k" / _</li>
+			<li>{p,b,b"}:,{t,d,d"}:,{k,g,g"}: -> p",t",k" / _</li>
+			<li></li>
+			<li>{r,r`} -> r[r] / {#,V}_V</li>
+			<li>{r,r`} -> r[ɾ] / _(only NOT ↑)</li>
+			<li>v -> w / _</li>
+			<li>sy,ty,zy,dy -> c,tc,j,dj / _</li>
+			<li>u',o',q' -> i,u,a / _</li>
+			<li>q -> o / _ (after this,letter "q" means schwa[ə])</li>
+			<li>wu,yi -> wo,ye</li>
 
-			<li>母音が後続しないtがsに変化[頻]</li>
-			<li>摩擦音の直前の子音が、摩擦音と同じ調音点の場合、脱落[頻]</li>
-			<li>同じ調音点の破裂音が連続している場合、無声音が脱落[頻]</li>
-			<li>kがxに変化[頻]</li>
-			<li>語頭かつ母音が後続するtがrに変化[頻]</li>
-			<li>wuはwoに、yiはyeに変化[頻]</li>
-			<li>語末のyqが脱落[頻]</li>
+			<li>t -> s / _{C,$}[DF]</li>
+			<li>{p,b,p"}{f,v},{t,d,t"}{s,z},{k,g,k"}{x,x'} -> {p,b,p"},{t,d,t"},{k,g,k"} / _[DF]</li>
+			<li>k -> x / _[DF]</li>
+			<li>t -> r / #_V[DF]</li>
+
+			<li>単語に有気音・長母音・二重母音が含まれる場合、語末に最も近いそれらを含む音節にアクセントが移動(共時的な変化でもあるので、屈折によって音節数が増えた場合はアクセントが移動する)</li>
 		</ul>
 		※一般名詞に題目格ができたのは属格ができるより前なので、
-		題目格は旧単語+id->新単語のような感じだが、属格は新単語+toのような感じで造語。
+		題目格は旧単語+id->新単語のような感じだが、属格は新単語+roのような感じで造語。<br>
+		この言語は長母音と二重母音が両方存在しているなど、
+		不安定なので、娘言語ではもう少し単純になる。
 		<h2>文法</h2>
 		<h3>名詞</h3>
 		<h4>数</h4>
@@ -56,25 +62,49 @@
 			<tr>
 				<th>一人称</th>
 				<td>-s</td>
-				<td>-ef</td>
-			</tr>
-			<tr>
-				<th>二人称</th>
-				<td>-e</td>
 				<td>-is</td>
 			</tr>
 			<tr>
+				<th>二人称</th>
+				<td>-ef</td>
+				<td>-ir</td>
+			</tr>
+			<tr>
 				<th>三人称</th>
-				<td>-ir`</td>
+				<td>-e</td>
 				<td>-ac</td>
 			</tr>
 		</table><br>
-		アルファ祖語(仮)に比べ、不規則変化が増えた。
 		<h4>時相制</h4>
 		<p>
 			　時相制の意味論はアルファ祖語(仮)とほぼ同じ。
-			母音交替は保たれる語と保たれない語がある。
-			例:ixnoe:l「流れる」(語幹はixnoe)(辞書での表示は語幹)
+			アルファ祖語(仮)時の母音交替をまとめると、
+			<li>u u' i</li>
+			<li>o o' e</li>
+			<li>q q' a</li>
+			<li>a e i</li>
+			<li>e i u</li>
+			<li>i u u'</li>
+			の6つになる。
+			これをアルファ・ビー祖語(仮)へ規則通りに音韻変化させると、
+			<li>u i i</li>
+			<li>o u e</li>
+			<li>o a a</li>
+			<li>a e i</li>
+			<li>e i u</li>
+			<li>i u i</li>
+			の6つになるが、類推でoue型はoaa型に、iui型はuii型に統合したため、
+			<li>u i i</li>
+			<li>o a a</li>
+			<li>a e i</li>
+			<li>e i u</li>
+			の4つになる。
+			つまり、変化の幹母音がiになる動詞は存在しなくなる。(不規則動詞を除く)
+			また、u型やa型で進行形と完了形の区別がなくなるため、
+			進行形には接尾辞-mがつき、完了形には-p"(b"avより)がつく。
+			それに伴って完了形の一人称単数は接尾辞sが脱落する。
+			また、完結形の一人称単数と二人称単数はet->e:となる。(もちろん長母音なのでアクセントが移動)<br><br>
+			例:serel「流れる」(語幹はser)
 			<table>
 				<tr>
 					<th></th>
@@ -87,48 +117,48 @@
 				</tr>
 				<tr>
 					<th>定頻</th>
-					<td>ixnoes</td>
-					<td>ixnoe:f</td>
-					<td>ixnoe:</td>
-					<td>ixnoei:</td>
-					<td>ixnoeir`</td>
-					<td>ixnoeac</td>
+					<td>sers</td>
+					<td>seref</td>
+					<td>sere</td>
+					<td>seris</td>
+					<td>serir</td>
+					<td>serac</td>
 				</tr>
 				<tr>
 					<th>進行</th>
-					<td>ixnues</td>
-					<td>ixnue:f</td>
-					<td>ixnue:</td>
-					<td>ixnuei:</td>
-					<td>ixnueir`</td>
-					<td>ixnueac</td>
+					<td>sirms</td>
+					<td>sirmef</td>
+					<td>sirme</td>
+					<td>sirmis</td>
+					<td>sirmir</td>
+					<td>sirmac</td>
 				</tr>
 				<tr>
 					<th>完了</th>
-					<td>ixne:s</td>
-					<td>ixne:f</td>
-					<td>ixne:</td>
-					<td>ixne:i:</td>
-					<td>ixne:ir`</td>
-					<td>ixne:ac</td>
+					<td>surp"</td>
+					<td>surp"ef</td>
+					<td>surp"e</td>
+					<td>surp"is</td>
+					<td>surp"ir</td>
+					<td>surp"ac</td>
 				</tr>
 				<tr>
 					<th>完結</th>
-					<td>ixne:t</td>
-					<td>ixne:t</td>
-					<td>ixne:te</td>
-					<td>ixne:ti:</td>
-					<td>ixne:tir`</td>
-					<td>ixne:tac</td>
+					<td>sure:</td>
+					<td>sure:</td>
+					<td>surte</td>
+					<td>surtis</td>
+					<td>surtir</td>
+					<td>surtac</td>
 				</tr>
 				<tr>
 					<th>未来</th>
-					<td>ixnoes</td>
-					<td>ixnoesef</td>
-					<td>ixnoese</td>
-					<td>ixnoesi:</td>
-					<td>ixnoesir`</td>
-					<td>ixnoesac</td>
+					<td>sers</td>
+					<td>sersef</td>
+					<td>serse</td>
+					<td>sersis</td>
+					<td>sersir</td>
+					<td>sersac</td>
 				</tr>
 			</table>
 		</p>
