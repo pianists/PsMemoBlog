@@ -13,6 +13,31 @@ div.code {
 	width:60em;
 }
 
+.page_top {
+	text-align: center;
+	background-color: #26948e;
+	margin-bottom: 30px;
+	display: block;
+	width: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 9999;
+	text-align: center;
+	padding: 0 auto;
+}
+
+.page_top a{
+	color: #fff;
+	display: inline-block;
+	padding: 20px;
+	font-size: 17px;
+}
+
+.page_top a:hover {
+	background-color: #3bbfb8;
+}
+
 ul.number {
 	list-style-type: decimal;
 }
@@ -27,16 +52,18 @@ h2.side {
 	text-align: center;
 }
 
-h1.body {
+h1.title {
+	margin-top: 65px;
 }
 
 body.side {
-	background-image: url("./images/side_back.png");
-	text-align: center;
+	background-image: none;
+	background-color: #ebfffb;
 }
 
 body.body {
-	background-image: url("./images/body_back.png");
+	background-image: none;
+	background-color: #ebfffb;
 }
 
 
@@ -61,11 +88,24 @@ table {
 	border-collapse: collapse;
 }
 
-td {
+th,td {
 	border: solid 1px;
-	border-color: #0a31ff;
-	background-color: #27ff91;
 	padding: 0.5em;
+	border-color: #fff;
+}
+
+th.non {
+	background-color: #ebfffb;
+	border-color: #ebfffb;
+}
+
+th {
+	background-color: #ade1ff;
+}
+
+td {
+	background-color: #adfffe;
+	text-align: center;
 }
 
 h2 {

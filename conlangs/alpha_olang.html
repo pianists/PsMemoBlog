@@ -3,25 +3,42 @@
 		<link rel="stylesheet" type="text/css" href="../style.css"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>アルファ祖語(仮)</title>
+		<div class="page_top">
+			<a href="./">
+				CONLANG
+			</a>
+			<a href="./alpha_olang.html">
+				ALPHA
+			</a>
+			<a href="./beta_olang.html">
+				BETA
+			</a>
+			<a href="../">
+				BLOG
+			</a>
+		</div>
 	</head>
 	<body class=body>
-		<h1 class=body>アルファ祖語(仮)</h1>
+		<h1 class=title>アルファ祖語(仮)</h1>
 		<p>
 			　仮想世界アルビスでいう印欧祖語にあたる言語です。<br>
 			辞書は<a href="./alpha_olang_dict.html">こちら</a>。
 		</p>
+		<h2>娘言語</h2>
+		<ul>
+			<li><a href="./alpha_a_olang.html">アルファ・エー祖語(仮)</a></li>
+			<li><a href="./alpha_b_olang.html">アルファ・ビー祖語(仮)</a></li>
+		</ul>
 		<h2>造語法</h2>
-		<p>
-			　一般に言語の解説といえば例文か文法から始まるが、
-			制作途中でまだ制作が始まったばかりという特殊な状態にあるため造語法を明文化しておく。
-			が、ある程度自分の主観で作る部分もあるため、
-			辞書において造語法が「主観」となっている語については例外として扱う。
-		</p>
 		<h3>語根の作成</h3>
 		<p>
 			　基本的に5つの音象徴からランダムに選んで造語する。
 			5つの音象徴は以下。
 			<table>
+				<tr>
+					<th>種類</th>
+					<th>音素</th>
+				</tr>
 				<tr>
 					<td>soft</td>
 					<td>m n w y p f r j</td>
@@ -67,7 +84,7 @@
 		<h3>母音</h3>
 		<table>
 			<tr>
-				<th></th>
+				<th class="non"></th>
 				<th>前(非円唇)</th>
 				<th>前(円唇)</th>
 				<th>後(円唇のみ)</th>
@@ -94,7 +111,7 @@
 		<h3>子音</h3>
 		<table>
 			<tr>
-				<th></th>
+				<th class="non"></th>
 				<th>両唇音</th>
 				<th>唇歯</th>
 				<th>歯茎</th>
@@ -201,6 +218,12 @@
 			ただし、原型の語に長子音が現れることはなく、活用・曲用した変化形に現れる。<br>
 			　なお、表記法は同じ子音を単に2つ並べるだけ。
 		</p>
+		<h4>子音クラスタ</h4>
+		<p>
+			　語頭の子音クラスタは許容されない。
+			語末の子音クラスタは通常2つまで、3つは稀。
+			構成する子音の調音部位などは比較的自由。
+		</p>
 		<h3>アクセント</h3>
 		<p>
 			　固定アクセントで、語幹の後ろから二音節目に強制アクセントがつく。
@@ -248,9 +271,10 @@
 	<h4>人称変化</h4>
 	<p>
 		　印欧語のように人称変化がある。
-		名詞には双数と複数の区別があるが、動詞の人称変化は単数、複数のみで、双数は複数扱いとなる。
 		基本の接尾辞は、一人称単数がs(neutral)、二人称単数がef(soft)、三人称単数がex(hard)、
-		一人称複数がit(neutral)、二人称複数がir(soft)、三人称単数がac(hard)。<br>
+		一人称複数がit(neutral)、二人称複数がir(soft)、三人称単数がac(hard)。
+		当初は双数形の屈折を作らない予定だったが、後から変更となった。
+		双数形は一人称がqk(neutral)、二人称がim(soft)、三人称がig"(hard)。<br>
 	</p>
 	<h4>時相制</h4>
 	<p>
@@ -286,10 +310,13 @@
 		例:serg"el「流れる」(語幹はserg")(辞書での表示は語幹)
 		<table>
 			<tr>
-				<th></th>
+				<th class="non"></th>
 				<th>一単</th>
 				<th>二単</th>
 				<th>三単</th>
+				<th>一双</th>
+				<th>二双</th>
+				<th>三双</th>
 				<th>一複</th>
 				<th>二複</th>
 				<th>三複</th>
@@ -299,6 +326,9 @@
 				<td>serg"s</td>
 				<td>serg"ef</td>
 				<td>serg"ex</td>
+				<td>serg"qk</td>
+				<td>serg"im</td>
+				<td>serg"ig"</td>
 				<td>serg"it</td>
 				<td>serg"ir</td>
 				<td>serg"ac</td>
@@ -308,6 +338,9 @@
 				<td>sirg"s</td>
 				<td>sirg"ef</td>
 				<td>sirg"ex</td>
+				<td>sirg"qk</td>
+				<td>sirg"im</td>
+				<td>sirg"ig"</td>
 				<td>sirg"it</td>
 				<td>sirg"ir</td>
 				<td>sirg"ac</td>
@@ -317,6 +350,9 @@
 				<td>surg"s</td>
 				<td>surg"ef</td>
 				<td>surg"ex</td>
+				<td>surg"qk</td>
+				<td>surg"im</td>
+				<td>surg"ig"</td>
 				<td>surg"it</td>
 				<td>surg"ir</td>
 				<td>surg"ac</td>
@@ -326,6 +362,9 @@
 				<td>surg"et</td>
 				<td>surg"et</td>
 				<td>surg"tex</td>
+				<td>surg"tqk</td>
+				<td>surg"tim</td>
+				<td>surg"tig"</td>
 				<td>surg"tit</td>
 				<td>surg"tir</td>
 				<td>surg"tac</td>
@@ -335,6 +374,9 @@
 				<td>serg"ss</td>
 				<td>serg"sef</td>
 				<td>serg"sex</td>
+				<td>serg"sqk</td>
+				<td>serg"sim</td>
+				<td>serg"sig"</td>
 				<td>serg"sit</td>
 				<td>serg"sir</td>
 				<td>serg"sac</td>
@@ -383,6 +425,73 @@
 	<p>
 		　叙述形での比較級は接尾辞ek、最上級は接尾辞arhによって表される。
 		限定形での比較級は接尾辞ik、最上級は接尾辞erhによって表される。
+	</p>
+	<h4>屈折形</h4>
+	<p>
+		ここまでまとめてきた屈折形の表。<br><br>
+		原級<br>
+		<table>
+			<tr>
+				<th class="non"></th>
+				<th>単数</th>
+				<th>双数</th>
+				<th>複数</th>
+			</tr>
+			<tr>
+				<th>叙述形</th>
+				<td>-∅</td>
+				<td>-naf</td>
+				<td>-ez</td>
+			</tr>
+			<tr>
+				<th>限定形</th>
+				<td>-ir</td>
+				<td>-nafir</td>
+				<td>-ezir</td>
+			</tr>
+		</table>
+		比較級<br>
+		<table>
+			<tr>
+				<th class="non"></th>
+				<th>単数</th>
+				<th>双数</th>
+				<th>複数</th>
+			</tr>
+			<tr>
+				<th>叙述形</th>
+				<td>-ek</td>
+				<td>-nafek</td>
+				<td>-ezek</td>
+			</tr>
+			<tr>
+				<th>限定形</th>
+				<td>-ik</td>
+				<td>-nafik</td>
+				<td>-ezik</td>
+			</tr>
+		</table>
+		最上級<br>
+		<table>
+			<tr>
+				<th class="non"></th>
+				<th>単数</th>
+				<th>双数</th>
+				<th>複数</th>
+			</tr>
+			<tr>
+				<th>叙述形</th>
+				<td>-arh</td>
+				<td>-nafarh</td>
+				<td>-ezarh</td>
+			</tr>
+			<tr>
+				<th>限定形</th>
+				<td>-erh</td>
+				<td>-naferh</td>
+				<td>-ezerh</td>
+			</tr>
+		</table>
 	</p>
 	</body>
 </html>
