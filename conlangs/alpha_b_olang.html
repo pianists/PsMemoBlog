@@ -47,7 +47,8 @@
 			<li>t -> r / $_V(often)</li>
 			<li>V -> ∅ / $_(often)</li>
 
-			<li>単語に長母音・二重母音が含まれる場合、語末に最も近いそれらを含む音節にアクセントが移動(共時的な変化でもあるので、屈折によって音節数が増えた場合はアクセントが移動する)</li>
+			<li>2音節の単語は頭にアクセントが付く。
+				3音節以上の単語は後ろから2音節目の母音が長母音/二重母音ならばそこにアクセントが付き、そうでなければ後ろから3音節目にアクセントが付く。</li>
 		</ul>
 		※一般名詞に題目格ができたのは属格ができるより前なので、
 		題目格は旧単語+id->新単語のような感じだが、属格は新単語+roのような感じで造語。<br>
@@ -67,8 +68,27 @@
 		</p>
 		<h4>屈折形</h4>
 		<p>
+			　まず、母音交替のシステムが動詞同様にu・o・a・eの4つに単純化する。
+			(詳しくは動詞参照)
+			そして、単独形がなくなったため、無標は主格となり、交替順が次のようになる。
+			(主格、題格/奪格、対格の順)
+			<ul>
+				<li>i u i</li>
+				<li>a o a</li>
+				<li>e a i</li>
+				<li>i e u</li>
+			</ul>
+			これでは語幹になれる母音が3種類と少ない上に、
+			複雑であるため、さらに以下のように単純化される。
+			<ul>
+				<li>u/o/a o a</li>
+				<li>e/i a i</li>
+			</ul>
+			後舌母音(aを含む)はo・aと屈折し、
+			前舌母音はa iと屈折する。<br>
+
 			　以下、数と格による屈折の表。
-			語幹を-V-、そこから1回母音交替したものをV'、2回したものをV''とする。
+			(語幹の母音交替を -V- -V'- -V''-と言う風に示す。)
 			<table>
 				<tr>
 					<th class="non"></th>
@@ -77,13 +97,13 @@
 				</tr>
 				<tr>
 					<th>主</th>
-					<td>-V'-a</td>
-					<td>-V'-ae</td>
+					<td>-V-a</td>
+					<td>-V-ae</td>
 				</tr>
 				<tr>
 					<th>題</th>
-					<td>-V-i:</td>
-					<td>-V-epi:</td>
+					<td>-V'-i:</td>
+					<td>-V'-epi:</td>
 				</tr>
 				<tr>
 					<th>対</th>
@@ -97,8 +117,8 @@
 				</tr>
 				<tr>
 					<th>奪</th>
-					<td>-V-cun</td>
-					<td>-V-epcun</td>
+					<td>-V'-cun</td>
+					<td>-V'-epcun</td>
 				</tr>
 				<tr>
 					<th>属</th>
@@ -106,7 +126,7 @@
 					<td>-V-e:to</td>
 				</tr>
 			</table><br>
-			例 : fafok"a(風)(語幹はfofok")<br>
+			例 : fafok"a(風)(語幹はfafok")<br>
 			<table>
 				<tr>
 					<th class="non"></th>
@@ -140,8 +160,8 @@
 				</tr>
 				<tr>
 					<th>属</th>
-					<td>fofo:to</td>
-					<td>fofok"e:to</td>
+					<td>fafok"to</td>
+					<td>fafok"e:to</td>
 				</tr>
 			</table><br>
 		</p>
@@ -345,7 +365,7 @@
 					<th>定頻</th>
 					<td>xas</td>
 					<td>uxasf</td>
-					<td>uxase</td>
+					<td>uxs</td>
 					<td>uxas</td>
 					<td>uxatir</td>
 					<td>uxatac</td>

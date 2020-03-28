@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>VIEWVO - アルファ・ビー祖語(仮)</title>
+		<div class="page_top">
+			<a href="./">
+				CONLANG
+			</a>
+			<a href="./alpha_olang.html">
+				ALPHA
+			</a>
+			<a href="./beta_olang.html">
+				BETA
+			</a>
+			<a href="../">
+				BLOG
+			</a>
+		</div>
+		<script>
+		var noun_template =
+			`
+				<table>
+					<tr>
+						<th class='non'></th>
+						<th>単数</th>
+						<th>複数</th>
+					</tr>
+					<tr>
+						<th>主</th>
+						<td>-TYPE1-a</td>
+						<td>-TYPE1-ae</td>
+					</tr>
+					<tr>
+						<th>題</th>
+						<td>-TYPE2-i:</td>
+						<td>-TYPE2-epi:</td>
+					</tr>
+					<tr>
+						<th>対</th>
+						<td>-ACCU-</td>
+						<td>-TYPE3-e:</td>
+					</tr>
+					<tr>
+						<th>与</th>
+						<td>-TYPE3-s</td>
+						<td>-TYPE3-eps</td>
+					</tr>
+					<tr>
+						<th>奪</th>
+						<td>-TYPE2-cun</td>
+						<td>-TYPE2-epcun</td>
+					</tr>
+					<tr>
+						<th>属</th>
+						<td>-TYPE1-to</td>
+						<td>-TYPE1-e:to</td>
+					</tr>
+				</table>
+			`
+		function viewvo(){
+			var input = document.getElementById("code_input");
+			var output = document.getElementById("output");
+			var accent = document.getElementById("accent");
+			var list = input.value.split(";");
+			var code = list[0];
+			var stem = list[1];
+			var is_rule_change = code[0] == "0";
+			var word_classes = ["名詞","動詞"];
+			var word_class = word_classes[parseInt(code[1])];
+			stem_vowel_num = parseInt(code[2]);
+			output.innerHTML = "";
+			output.innerHTML += "品詞 : " + word_class;
+			if(word_class == "名詞"){
+				stem2 = Array.from(stem);
+				stem3 = Array.from(stem);
+				if (["u","o","a"].indexOf(stem[stem_vowel_num]) >= 0){
+					stem2[stem_vowel_num] = "o";
+					stem3[stem_vowel_num] = "a";
+				}
+				if (["e","i"].indexOf(stem[stem_vowel_num]) >= 0){
+					stem2[stem_vowel_num] = "a";
+					stem3[stem_vowel_num] = "i";
+				}
+				stem2 = stem2.join("");
+				stem3 = stem3.join("");
+				var accu = stem3;
+				if(["p","b","t","d","k","g"].indexOf(accu[accu.length-1]) >= 0){
+					accu = stem3.slice(0,stem3.length-1);
+					if(accu[accu.length-1] != ":"){
+						accu += ":";
+					};
+				};
+				if(accu[accu.length-1] == "\""){
+					accu = stem3.slice(0,stem3.length-2);
+					if(accu[accu.length-1] != ":"){
+						accu += ":";
+					};
+				};
+				table = noun_template.replace(/-TYPE1-/g,stem);
+				table = table.replace(/-TYPE2-/g,stem2);
+				table = table.replace(/-TYPE3-/g,stem3);
+				table = table.replace(/-ACCU-/g,accu);
+				output.innerHTML += table;
+			};
+		};
+		</script>
+	</head>
+	<body class=body>
+		<h1 class=title>VIEWVO - アルファ・ビー祖語(仮)</h1>
+		<form action="javascript:viewvo();">
+			アクセントの表示:
+			<input type="checkbox" id="accent"/><br>
+			単語コード:
+			<input type="textbox" id="code_input"/>
+			<input type="submit" value="表示">
+		</form>
+		結果:
+		<div id="output"></div>
+	</body>
+</html>
