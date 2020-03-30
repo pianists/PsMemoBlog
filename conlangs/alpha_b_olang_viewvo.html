@@ -18,6 +18,8 @@
 			</a>
 		</div>
 		<script>
+		var irr_dict = [
+		];
 		var noun_template =
 			`
 				<table>
@@ -28,8 +30,8 @@
 					</tr>
 					<tr>
 						<th>主</th>
-						<td>-TYPE1-a</td>
-						<td>-TYPE1-ae</td>
+						<td>-TYPE1--NOM-</td>
+						<td>-TYPE1--NOM-e:</td>
 					</tr>
 					<tr>
 						<th>題</th>
@@ -57,7 +59,71 @@
 						<td>-TYPE1-e:to</td>
 					</tr>
 				</table>
+			`;
+		var verb_template =
 			`
+				<table>
+					<tr>
+						<th class="non"></th>
+						<th colspan="3">単数</th>
+						<th colspan="3">複数</th>
+					</tr>
+					<tr>
+						<th class="non"></th>
+						<th>1人称</th>
+						<th>2人称</th>
+						<th>3人称</th>
+						<th>1人称</th>
+						<th>2人称</th>
+						<th>3人称</th>
+					</tr>
+					<tr>
+						<th>定頻</th>
+						<td>-TYPE1-s</td>
+						<td>-TYPE1-ef</td>
+						<td>-TYPE1-e</td>
+						<td>-TYPE1-is</td>
+						<td>-TYPE1-ir</td>
+						<td>-TYPE1-ac</td>
+					</tr>
+					<tr>
+						<th>進行</th>
+						<td>-TYPE2-mes</td>
+						<td>-TYPE2-mef</td>
+						<td>-TYPE2-me</td>
+						<td>-TYPE2-mis</td>
+						<td>-TYPE2-mir</td>
+						<td>-TYPE2-mac</td>
+					</tr>
+					<tr>
+						<th>完了</th>
+						<td>-TYPE3-p"a</td>
+						<td>-TYPE3-p"ef</td>
+						<td>-TYPE3-p"e</td>
+						<td>-TYPE3-p"is</td>
+						<td>-TYPE3-p"ir</td>
+						<td>-TYPE3-p"ac</td>
+					</tr>
+					<tr>
+						<th>完結</th>
+						<td>-TYPE3-e:</td>
+						<td>-TYPE3-e:</td>
+						<td>-TYPE3-te</td>
+						<td>-TYPE3-tis</td>
+						<td>-TYPE3-tir</td>
+						<td>-TYPE3-tac</td>
+					</tr>
+					<tr>
+						<th>未来</th>
+						<td>-TYPE1-s</td>
+						<td>-TYPE1-sef</td>
+						<td>-TYPE1-se</td>
+						<td>-TYPE1-sis</td>
+						<td>-TYPE1-sir</td>
+						<td>-TYPE1-sac</td>
+					</tr>
+				</table>
+			`;
 		function viewvo(){
 			var input = document.getElementById("code_input");
 			var output = document.getElementById("output");
@@ -70,20 +136,25 @@
 			var word_class = word_classes[parseInt(code[1])];
 			stem_vowel_num = parseInt(code[2]);
 			output.innerHTML = "";
-			output.innerHTML += "品詞 : " + word_class;
-			if(word_class == "名詞"){
+			if(is_rule_change && word_class == "名詞"){
+				var nom_tale = "";
 				stem2 = Array.from(stem);
 				stem3 = Array.from(stem);
-				if (["u","o","a"].indexOf(stem[stem_vowel_num]) >= 0){
+				if (["u","o"].indexOf(stem[stem_vowel_num]) >= 0){
 					stem2[stem_vowel_num] = "o";
 					stem3[stem_vowel_num] = "a";
+					nom_tale = "os";
 				}
-				if (["e","i"].indexOf(stem[stem_vowel_num]) >= 0){
+				if (["e","i","a"].indexOf(stem[stem_vowel_num]) >= 0){
 					stem2[stem_vowel_num] = "a";
 					stem3[stem_vowel_num] = "i";
+					nom_tale = "a";
 				}
 				stem2 = stem2.join("");
 				stem3 = stem3.join("");
+				output.innerHTML += "<h2>" + stem+nom_tale + "</h2>";
+				output.innerHTML += "品詞 : " + word_class + "<br>";
+				output.innerHTML += "屈折 :" + "<br>";
 				var accu = stem3;
 				if(["p","b","t","d","k","g"].indexOf(accu[accu.length-1]) >= 0){
 					accu = stem3.slice(0,stem3.length-1);
@@ -97,10 +168,37 @@
 						accu += ":";
 					};
 				};
-				table = noun_template.replace(/-TYPE1-/g,stem);
+				table = noun_template.replace(/-NOM-/g,nom_tale);
+				table = table.replace(/-TYPE1-/g,stem);
 				table = table.replace(/-TYPE2-/g,stem2);
 				table = table.replace(/-TYPE3-/g,stem3);
 				table = table.replace(/-ACCU-/g,accu);
+				output.innerHTML += table;
+			};
+			if(is_rule_change && word_class == "動詞"){
+				output.innerHTML += "<h2>" + stem+"er" + "</h2>";
+				output.innerHTML += "品詞 : " + word_class + "<br>";
+				output.innerHTML += "屈折 :" + "<br>";
+				stem2 = Array.from(stem);
+				stem3 = Array.from(stem);
+				if(stem[stem_vowel_num] == "u"){
+					stem2[stem_vowel_num] = "i";
+					stem3[stem_vowel_num] = "i";
+				}else if(stem[stem_vowel_num] == "o"){
+					stem2[stem_vowel_num] = "a";
+					stem3[stem_vowel_num] = "a";
+				}else if(stem[stem_vowel_num] == "a"){
+					stem2[stem_vowel_num] = "e";
+					stem3[stem_vowel_num] = "i";
+				}else if(stem[stem_vowel_num] == "e"){
+					stem2[stem_vowel_num] = "i";
+					stem3[stem_vowel_num] = "u";
+				};
+				stem2 = stem2.join("");
+				stem3 = stem3.join("");
+				table = verb_template.replace(/-TYPE1-/g,stem);
+				table = table.replace(/-TYPE2-/g,stem2);
+				table = table.replace(/-TYPE3-/g,stem3);
 				output.innerHTML += table;
 			};
 		};
@@ -109,8 +207,8 @@
 	<body class=body>
 		<h1 class=title>VIEWVO - アルファ・ビー祖語(仮)</h1>
 		<form action="javascript:viewvo();">
-			アクセントの表示:
-			<input type="checkbox" id="accent"/><br>
+			<!--アクセントの表示:
+			<input type="checkbox" id="accent"/><br>-->
 			単語コード:
 			<input type="textbox" id="code_input"/>
 			<input type="submit" value="表示">
