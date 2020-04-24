@@ -1,19 +1,19 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../style.css"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>フェレーラ語</title>
 		<div class="page_top">
-			<a href="./">
+			<a href="../../">
 				CONLANG
 			</a>
-			<a href="./alpha_olang.html">
+			<a href="../../alpha_olang/">
 				ALPHA
 			</a>
-			<a href="./beta_olang.html">
+			<a href="../../beta_olang/">
 				BETA
 			</a>
-			<a href="../">
+			<a href="../../../">
 				BLOG
 			</a>
 		</div>
@@ -25,7 +25,15 @@
 				"不規則変化",
 				"一人称単数。",
 				"代名詞",
-				"アルファ祖語(仮)alから",
+				"アルファ祖語(仮) alから",
+			]],
+			["aliōre" , [
+				"a LIO: re",
+				"好きだ 好む",
+				"o幹動詞変化",
+				"英:likeに近い動詞。状態動詞なので、進行形は用いられず、完了形は「好きになる(なった)」程度の意味。",
+				"動詞",
+				"アルファ祖語(仮) alyod\"から",
 			]],
 			["an" , [
 				"an",
@@ -41,7 +49,7 @@
 				"前幹実詞変化 i",
 				"英:dayにあたる日中の言い方。",
 				"名詞",
-				"アルファ祖語(仮)anxunから",
+				"アルファ祖語(仮) anxunから",
 			]],
 			["atre" , [
 				"AT re",
@@ -50,6 +58,14 @@
 				"存在を表す動詞。",
 				"動詞",
 				"アルファ祖語(仮) atから",
+			]],
+			["atre(2)" , [
+				"AT re",
+				"〜がある",
+				"",
+				"動詞の定頻形や進行形、完了形の不定法をとって、時制を変える。",
+				"助動詞",
+				"%atre%から",
 			]],
 			["baprea" , [
 				"ba PRE a",
@@ -67,10 +83,18 @@
 				"名詞",
 				"アルファ祖語(仮) bilから",
 			]],
-			["cukhiore" , [
-				"cu K\"IO re",
+			["cajāre" , [
+				"ca JA: re",
+				"愛する",
+				"a幹動詞変化(1)",
+				"英:loveに近く、意味が広い。",
+				"動詞",
+				"アルファ祖語(仮) caj/adから",
+			]],
+			["cukhiōre" , [
+				"cu K\"IO: re",
 				"統べる 統治する",
-				"u幹動詞変化 u",
+				"u幹動詞変化",
 				"国や地域、人々などをまとめることを意味する動詞。語幹はcukhio。",
 				"動詞",
 				"アルファ祖語(仮) cug\"yod\"から",
@@ -225,7 +249,23 @@
 				"不規則変化",
 				"有生三人称単数。無生の場合は指示代名詞を使用。",
 				"代名詞",
-				"アルファ祖語(仮)ludから",
+				"アルファ祖語(仮) ludから",
+			]],
+			["muare" , [
+				"MUA re",
+				"食べる 食う",
+				"u幹動詞変化",
+				"食べることを広く表す動詞。",
+				"動詞",
+				"アルファ祖語(仮) muxから",
+			]],
+			["natjona" , [
+				"NAT jo na",
+				"妻 配偶者",
+				"前幹実詞変化 a",
+				"主に、男性から見た女性の配偶者を表す。",
+				"名詞",
+				"アルファ祖語(仮) nat/jqn",
 			]],
 			["noelos" , [
 				"NOE los",
@@ -283,6 +323,14 @@
 				"名詞",
 				"アルファ祖語(仮) ser/ilから",
 			]],
+			["srithia" , [
+				"SRI t\"ia",
+				"果物 果実",
+				"前幹実詞変化 i(sri)",
+				"果実を表す名詞。",
+				"名詞",
+				"アルファ祖語(仮) serd\"ixから",
+			]],
 			["thakhāre" , [
 				"t\"a K\"A: re",
 				"戦う",
@@ -307,6 +355,14 @@
 				"動詞",
 				"アルファ祖語(仮) d\"ox'rasから",
 			]],
+			["tacma" , [
+				"TAC ma",
+				"それぞれの 各 毎",
+				"前幹実詞変化 a(ta)",
+				"英:eachやeveryにあたる。",
+				"名詞",
+				"アルファ祖語(仮) toc/mから",
+			]],
 			["uh" , [
 				"ux",
 				"〜の",
@@ -314,6 +370,14 @@
 				"同格の後置詞。同格は属格で表すことはできない。",
 				"後置詞",
 				"アルファ祖語(仮) ukから",
+			]],
+			["utūre" , [
+				"u TU: re",
+				"〜できる",
+				"u幹動詞変化(2)",
+				"可能を表す助動詞。",
+				"助動詞",
+				"アルファ祖語(仮) utid\"から",
 			]],
 			["uzeaja" , [
 				"u ZEA ja",
@@ -369,7 +433,7 @@
 					if(input.value.toLowerCase() == key.slice(0,input.value.length).toLowerCase()){
 						if(!is_check_kind.checked){
 							results.push([key,val]);
-						}else if(kind.value == val[3]){
+						}else if(kind.value == val[4]){
 							results.push([key,val]);
 						}
 					};
@@ -378,7 +442,7 @@
 						(val.join(",")).indexOf(input.value.toLowerCase()) > -1){
 						if(!is_check_kind.checked){
 							results.push([key,val]);
-						}else if(kind.value == val[3]){
+						}else if(kind.value == val[4]){
 							results.push([key,val]);
 						}
 					};

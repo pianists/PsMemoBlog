@@ -3,7 +3,7 @@ div.code {
 	background-color: #000000;
 }
 
-div.center {
+.center {
 	text-align: center;
 }
 
@@ -144,6 +144,15 @@ body {
 		display: block;
 		margin-top: 0.5em
 	}
+}
+
+@font-face {
+	font-family: Ferela;
+	src: url(./fonts/FerelaTest.ttf);
+}
+
+.ferela {
+	font-family: Ferela;
 }
 
 .red {
