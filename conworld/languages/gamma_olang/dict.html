@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>ガンマ祖語(仮)</title>
+		<div class="page_top">
+			<a href="../../">
+				ALUBIS
+			</a>
+			<a href="../../languages/">
+				LANGUAGES
+			</a>
+			<a href="../../geography/">
+				GEOGRAPHY
+			</a>
+		</div>
+		<script>
+		var dict = [
+		];
+		function search(){
+			input = document.getElementById("word_input");
+			kind = document.getElementById("kind_input");
+			output = document.getElementById("output");
+			is_all = document.getElementById("is_all");
+			is_check_kind = document.getElementById("is_check_kind");
+			results = [];
+			dict.forEach(function(elm,i) {
+				var key = elm[0];
+				var val = elm[1];
+				if(!is_all.checked){
+					if(input.value.toLowerCase() == key.slice(0,input.value.length).toLowerCase()){
+						if(!is_check_kind.checked){
+							results.push([key,val]);
+						}else if(kind.value == val[2]){
+							results.push([key,val]);
+						}
+					};
+				}else{
+					if(key.toLowerCase().indexOf(input.value.toLowerCase()) > -1 ||
+						(val.join(",")).indexOf(input.value.toLowerCase()) > -1){
+						if(!is_check_kind.checked){
+							results.push([key,val]);
+						}else if(kind.value == val[2]){
+							results.push([key,val]);
+						}
+					};
+				};
+			}, dict);
+			if(results.length == 0){
+				output.innerText = "見つかりませんでした。";
+			}else{
+				output.innerHTML = "";
+				results.forEach(function(result,i){
+					key = result[0];
+					val = result[1];
+					output.innerHTML += "<h2>" + key + "</h2>" +
+					"意味 : " + val[0] + "<br>" + "概要 :" + "<br>" + val[1] +
+					"<br>" + "品詞 : " + val[2] + "<br>" + "造語法 : " + val[3];
+					output.innerHTML = output.innerHTML.replace(/%(.*?)%/g,"<a href='#' onclick='searchBy(\"$1\")'>$1</a>");
+					output.innerHTML = output.innerHTML.replace(/>(.*?)\\"(.*?)<\/a>/g,">$1\"$2</a>");
+				});
+			};
+		};
+		function searchBy(text){
+			document.getElementById('word_input').value=text;
+			search();
+		};
+		</script>
+	</head>
+	<body class=body>
+		<h1 class=title>ガンマ祖語(仮)</h1>
+		まだ全然語数が足りないです。
+		語根も調べられます。(これはもっぱら作者用ですが)
+		<form action="javascript:search();">
+			全文検索:
+			<input type="checkbox" id="is_all"/>
+			　品詞をチェックする:
+			<input type="checkbox" id="is_check_kind"/><br>
+			検索ワード:
+			<input type="textbox" id="word_input"/><br>
+			品詞　　　:
+			<input type="textbox" id="kind_input"/>
+			<input type="submit" value="検索">
+		</form>
+		結果:
+		<div id="output"></div>
+	</body>
+</html>
