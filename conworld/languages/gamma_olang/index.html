@@ -32,8 +32,21 @@
 					<th>種類</th>
 					<th>音素</th>
 				</tr>
+				<tr>
+					<td>light</td>
+					<td>p t k t͡s r s χ ʁ</td>
+				</tr>
+				<tr>
+					<td>soft</td>
+					<td>b d g d͡z m n h j</td>
+				</tr>
+				<tr>
+					<td>dark</td>
+					<td>pˤ tˤ kˤ t͡sˤ l w ħ ʕ</td>
+				</tr>
 			</table>
 		</p>
+		　音象徴を決めてランダムに3つの子音を選ぶ。
 		<h2>発音</h2>
 		<h3>母音</h3>
 		短母音
@@ -88,21 +101,24 @@
 				<th>硬口蓋</th>
 				<th>軟口蓋</th>
 				<th>口蓋垂</th>
+				<th>咽頭</th>
 				<th>声門</th>
 			</tr>
 			<tr>
 				<th>破裂</th>
-				<td>p b pˤ</td>
-				<td>t d tˤ</td>
+				<td>p b p(~b)ˤ</td>
+				<td>t d t(~d)ˤ</td>
 				<td></td>
-				<td>k g kˤ</td>
+				<td>k g k(~g)ˤ</td>
+				<td></td>
 				<td></td>
 				<td></td>
 			</tr>
 			<tr>
 				<th>破擦</th>
 				<td></td>
-				<td>t͡s d͡z tsˤ</td>
+				<td>t͡s d͡z t͡s(~d͡z)ˤ</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -116,11 +132,13 @@
 				<td></td>
 				<td></td>
 				<td></td>
+				<td></td>
 			</tr>
 			<tr>
 				<th>ふるえ</th>
 				<td></td>
 				<td>r</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -131,8 +149,9 @@
 				<td></td>
 				<td>s</td>
 				<td></td>
-				<td>x</td>
-				<td>χ</td>
+				<td></td>
+				<td>χ ʁ</td>
+				<td>ħ ʕ</td>
 				<td>h</td>
 			</tr>
 			<tr>
@@ -140,6 +159,7 @@
 				<td></td>
 				<td></td>
 				<td>j</td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -152,6 +172,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
+				<td></td>
 			</tr>
 		</table>
 		<br>
@@ -160,5 +181,105 @@
 			<td>w</td>
 		</table>
 		<h2>文法</h2>
+		<h3>形態論的分類</h3>
+		<p>
+			　VSO・AN・前置詞の屈折語。
+			ANが基本だが形容詞にも格変化があるため語順は比較的自由。
+		</p>
+		<h3>名詞</h3>
+		<h4>文法性(名詞クラスタ)</h4>
+		<p>
+			　文法性として男性・女性・中性がある。
+			それぞれの性によって活用形が異なる。
+		</p>
+		<h4>数</h4>
+		<p>
+			　単数形・双数形・複数形・集合形(collective)がある。
+		</p>
+		<h4>格</h4>
+		<p>
+			　格には主格・対格・属格があり、無標は対格である。
+		</p>
+		<h4>屈折表</h4>
+		<p>
+			　原形の語幹を-I-、幹母音が変わった語幹を-(任意の幹母音)-と表す。
+			また、幹母音なしの語幹を-∅-と表す。
+			<table>
+				<tr>
+					<th class="non"></th>
+					<th colspan="4">男性</th>
+					<th colspan="4">女性</th>
+					<th colspan="4">中性</th>
+				</tr>
+				<tr>
+					<th class="non"></th>
+					<th>単数</th>
+					<th>双数</th>
+					<th>複数</th>
+					<th>集合</th>
+
+					<th>単数</th>
+					<th>双数</th>
+					<th>複数</th>
+					<th>集合</th>
+
+					<th>単数</th>
+					<th>双数</th>
+					<th>複数</th>
+					<th>集合</th>
+				</tr>
+				<tr>
+					<th>主格</th>
+					<td>-I-u</td>
+					<td>-I-jumu</td>
+					<td>-u-mu</td>
+					<td>-ī-d͡zu</td>
+
+					<td>-I-u</td>
+					<td>-a-haju</td>
+					<td>-uː-hu</td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>対格</th>
+					<td>-I-a</td>
+					<td>-I-juma</td>
+					<td>-u-ma</td>
+					<td>-ī-d͡za</td>
+
+					<td>-I-a</td>
+					<td>-a-haja</td>
+					<td>-uː-ha</td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>属格</th>
+					<td>-I-i</td>
+					<td>-I-jumi</td>
+					<td>-u-mi</td>
+					<td>-ī-d͡zi</td>
+
+					<td>-I-i</td>
+					<td>-a-haji</td>
+					<td>-uː-hi</td>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</p>
 	</body>
 </html>
