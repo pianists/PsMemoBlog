@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>音変化適用ツール</title>
+		<script src="./sound_change.js"></script>
+		<div class="page_top">
+			<a href="../">
+				ALUBIS
+			</a>
+			<a href="../languages/">
+				LANGUAGES
+			</a>
+			<a href="../geography/">
+				GEOGRAPHY
+			</a>
+			<a href="../policy/">
+				POLICY
+			</a>
+		</div>
+	</head>
+	<body class=body>
+		<h1 class="title">音変化適用ツール</h1>
+		<form action="javascript:applyAll();">
+			包括記号<br>
+			<textarea rows="10" cols="30" id="sounds"></textarea><br>
+			音変化<br>
+			<textarea rows="10" cols="30" id="sound_changes1"></textarea>
+			<input type="button" value="+" onClick="addSounds()"/>
+			<input type="button" value="-" onClick="deleteSounds()"/><br>
+			単語<br>
+			<textarea rows="10" cols="30" id="words"></textarea><br>
+			結果<br>
+			<textarea rows="10" cols="30" id="output"></textarea>
+			<input type="submit" value="適用"/>
+		</form>
+	</body>
+</html>
